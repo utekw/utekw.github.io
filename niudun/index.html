@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="艾萨克·牛顿（Isaac Newton）官方网站，提供牛顿生平介绍、经典力学三大定律详解、万有引力定律解析及科学贡献与影响。">
+    <meta name="keywords" content="牛顿, 艾萨克·牛顿, 经典力学, 万有引力, 牛顿三大定律, 科学史">
+    <title>牛顿 - 科学巨匠艾萨克·牛顿生平、定律与科学贡献详解</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #3949ab;
+            --accent-color: #ffca28;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --bg-light: #f5f5f5;
+            --white: #ffffff;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-weight: 400;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: none;
+        }
+
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        @media (min-width: 768px) {
+            nav ul {
+                display: flex;
+                gap: var(--spacing-lg);
+            }
+            .nav-toggle { display: none; }
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-light);
+        }
+
+        .about-visual {
+            background-color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .about-visual::before {
+            content: "⚛️";
+            font-size: 5rem;
+            opacity: 0.2;
+        }
+
+        /* Laws Section */
+        .laws {
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .law-card {
+            background-color: var(--bg-light);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            transition: transform 0.2s;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .law-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .law-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(26, 35, 126, 0.1);
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .law-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .law-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .timeline-date {
+            min-width: 100px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: right;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: var(--spacing-md) 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        .faq-answer {
+            margin-top: var(--spacing-sm);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "▼";
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #121212;
+            color: #b0bec5;
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .section { padding: var(--spacing-lg) 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L9 9H2L7 14L5 21L12 17L19 21L17 14L22 9H15L12 2Z"/>
+                </svg>
+                牛顿 <span>Isaac Newton</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="active">生平简介</a></li>
+                    <li><a href="#laws">三大定律</a></li>
+                    <li><a href="#gravity">万有引力</a></li>
+                    <li><a href="#timeline">科学年表</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>改变世界的科学巨匠</h1>
+                <p>探索艾萨克·牛顿的经典力学体系，理解万有引力定律如何奠定现代物理学基础。</p>
+                <a href="#laws" class="hero-btn">探索经典力学</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>艾萨克·牛顿：近代科学的奠基人</h2>
+                        <p>艾萨克·牛顿（1643年—1727年）是英国著名的物理学家、数学家、天文学家和自然哲学家。他在科学史上具有划时代的意义，其著作《自然哲学的数学原理》奠定了经典力学的基础。</p>
+                        <p>牛顿提出的运动定律和万有引力定律，不仅完美解释了行星的运动规律，还将天上与地下的物理现象统一在同一个框架之下。他的微积分发明以及光学研究（如棱镜分光实验）同样对人类认知世界产生了深远影响。</p>
+                    </div>
+                    <div class="about-visual">
+                        <!-- Visual Placeholder -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="laws" class="section laws">
+            <div class="container">
+                <div class="section-header">
+                    <h2>牛顿运动三大定律</h2>
+                    <p>经典力学的核心基石，描述了物体运动与受力之间的关系。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="law-card">
+                        <div class="law-number">01</div>
+                        <h3 class="law-title">第一定律（惯性定律）</h3>
+                        <p class="law-desc">一切物体在没有受到外力作用的时候，总保持匀速直线运动状态或静止状态。</p>
+                    </article>
+                    <article class="law-card">
+                        <div class="law-number">02</div>
+                        <h3 class="law-title">第二定律（加速度定律）</h3>
+                        <p class="law-desc">物体的加速度与所受的合外力成正比，与物体的质量成反比，加速度的方向与合外力的方向相同。</p>
+                    </article>
+                    <article class="law-card">
+                        <div class="law-number">03</div>
+                        <h3 class="law-title">第三定律（作用与反作用定律）</h3>
+                        <p class="law-desc">两个物体之间的作用力和反作用力，在同一直线上，大小相等，方向相反。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="gravity" class="section">
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+                        <h2 style="font-size: 2rem; color: var(--primary-color); margin-bottom: var(--spacing-md);">万有引力定律</h2>
+                        <p style="margin-bottom: var(--spacing-md); color: var(--text-light);">
+                            牛顿在1687年出版的《自然哲学的数学原理》中提出了万有引力定律。他指出：自然界中任何两个物体都是相互吸引的，引力的大小与这两个物体的质量的乘积成正比，与它们之间距离的平方成反比。
+                        </p>
+                        <p style="margin-bottom: var(--spacing-md); color: var(--text-light);">
+                            这一发现成功解释了开普勒行星运动定律，并预测了哈雷彗星的回归周期，是人类科学史上最伟大的成就之一。
+                        </p>
+                        <div style="background: var(--white); padding: 20px; border-radius: 8px; box-shadow: var(--shadow-sm);">
+                            <strong>公式示意：</strong>
+                            <p style="font-family: 'Courier New', monospace; margin-top: 10px;">F = G × (m₁ × m₂) / r²</p>
+                        </div>
+                    </div>
+                    <div style="background-color: var(--primary-color); color: var(--white); padding: var(--spacing-lg); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: var(--spacing-md);">🍎</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm);">苹果落地之谜</h3>
+                        <p style="opacity: 0.9;">
+                            关于牛顿被苹果砸中头部的传说，虽经考证细节可能有夸大，但这个故事形象地说明了万有引力的直观性。它将高高在上的天体运动与脚下的日常生活联系在了一起。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>科学贡献年表</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">1665-1666</div>
+                        <div class="timeline-content">
+                            <h3>瘟疫之年与微积分</h3>
+                            <p>剑桥大学因黑死病关闭，牛顿返乡。在此期间，他创立了微积分（流数术），发现了色散原理并开始思考万有引力。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1687年</div>
+                        <div class="timeline-content">
+                            <h3>《原理》出版</h3>
+                            <p>《自然哲学的数学原理》正式出版，系统阐述了三大定律和万有引力定律，确立了牛顿力学体系。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1689年</div>
+                        <div class="timeline-content">
+                            <h3>进入议会</h3>
+                            <p>牛顿代表剑桥大学进入英国议会，但因不善于社交，其主要贡献仍集中在科学领域。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1703年</div>
+                        <div class="timeline-content">
+                            <h3>皇家学会主席</h3>
+                            <p>牛顿当选为皇家学会主席，并连任直到去世。他在任期间推动了科学的发展，并主导了对胡克等人的批评。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题 (FAQ)</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">牛顿是第一个发现万有引力的人吗？</div>
+                        <div class="faq-answer">不是。牛顿在《原理》中提到，他通过开普勒的行星运动定律推导出了万有引力，并承认了胡克等人对引力平方反比定律的早期研究。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">牛顿的三大定律在今天还适用吗？</div>
+                        <div class="faq-answer">在宏观低速（远低于光速）的日常物体运动中，牛顿三大定律依然是非常精确和实用的工具。但在高速或微观领域，需要使用相对论和量子力学。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">牛顿和爱因斯坦谁更伟大？</div>
+                        <div class="faq-answer">这是科学史上的一个经典争论。牛顿构建了经典力学大厦，爱因斯坦则打破了经典力学的框架。两者在不同层面上都代表了人类智慧的巅峰。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于牛顿</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        本站致力于普及科学知识，还原艾萨克·牛顿的真实形象与其对人类文明的深远影响。牛顿不仅是科学家，也是炼金术士、神学家和时代巨匠。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#about">生平简介</a></li>
+                        <li><a href="#laws">运动定律</a></li>
+                        <li><a href="#gravity">万有引力</a></li>
+                        <li><a href="#timeline">年表</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">《自然哲学的数学原理》节选</a></li>
+                        <li><a href="#">微积分发展史</a></li>
+                        <li><a href="#">光学与棱镜实验</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 牛顿科学百科. All rights reserved. 本站内容仅供学习参考。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navUl = document.querySelector('nav ul');
+        const navLinks = document.querySelectorAll('nav a');
+
+        navToggle.addEventListener('click', () => {
+            if (navUl.style.display === 'flex') {
+                navUl.style.display = 'none';
+            } else {
+                navUl.style.display = 'flex';
+                navUl.style.flexDirection = 'column';
+                navUl.style.position = 'absolute';
+                navUl.style.top = '70px';
+                navUl.style.left = '0';
+                navUl.style.width = '100%';
+                navUl.style.backgroundColor = 'white';
+                navUl.style.padding = '20px';
+                navUl.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 767) {
+                    navUl.style.display = 'none';
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
