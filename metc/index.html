@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metcn中国人体专辑 - 精选人体摄影艺术与人体美学鉴赏指南</title>
+    <meta name="description" content="metcn中国人体专辑收录了大量高质量的中国人体摄影作品，涵盖人体艺术、人体素描与人体写生。本站提供专业的艺术鉴赏视角，探索人体之美与人体结构知识。">
+    <meta name="keywords" content="metcn中国人体专辑,人体摄影,人体艺术,人体写生,中国人体,艺术鉴赏">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.6rem;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .art-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .art-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .art-image {
+            width: 100%;
+            height: 350px;
+            background-color: #eee;
+            object-fit: cover;
+            display: block;
+        }
+
+        .art-info {
+            padding: 1rem;
+        }
+
+        .art-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .art-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .art-category {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.8rem;
+        }
+
+        .category-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+        }
+
+        .category-list a:hover {
+            color: var(--accent-color);
+        }
+
+        .count {
+            background: #eee;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            margin: 0 0.8rem;
+            color: white;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                metcn<span>中国人体专辑</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#gallery">精选作品</a></li>
+                    <li><a href="#categories">分类浏览</a></li>
+                    <li><a href="#guide">鉴赏指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>探索人体艺术之美</h1>
+            <p>metcn中国人体专辑致力于收录高质量的中国人体摄影与写生作品，提供专业的艺术鉴赏视角与人体结构知识分享。</p>
+            <div class="hero-tags">
+                <span class="tag">人体写生</span>
+                <span class="tag">艺术摄影</span>
+                <span class="tag">人体美学</span>
+                <span class="tag">结构解析</span>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Main Content -->
+            <div class="content">
+                <section id="gallery">
+                    <div class="section-header">
+                        <h2 class="section-title">精选专辑推荐</h2>
+                        <a href="#" style="color: var(--accent-color); font-size: 0.9rem;">查看全部 &rarr;</a>
+                    </div>
+                    
+                    <div class="gallery-grid">
+                        <!-- Card 1 -->
+                        <article class="art-card">
+                            <img src="https://picsum.photos/seed/body1/400/500" alt="古典人体素描" class="art-image">
+                            <div class="art-info">
+                                <h3 class="art-title">古典人体结构解析</h3>
+                                <div class="art-meta">
+                                    <span class="art-category">素描写生</span>
+                                    <span>2023-10-15</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="art-card">
+                            <img src="https://picsum.photos/seed/body2/400/500" alt="光影人体摄影" class="art-image">
+                            <div class="art-info">
+                                <h3 class="art-title">光影下的东方韵味</h3>
+                                <div class="art-meta">
+                                    <span class="art-category">摄影艺术</span>
+                                    <span>2023-10-12</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="art-card">
+                            <img src="https://picsum.photos/seed/body3/400/500" alt="动态人体捕捉" class="art-image">
+                            <div class="art-info">
+                                <h3 class="art-title">动态捕捉与瞬间张力</h3>
+                                <div class="art-meta">
+                                    <span class="art-category">动态摄影</span>
+                                    <span>2023-10-10</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="art-card">
+                            <img src="https://picsum.photos/seed/body4/400/500" alt="黑白人体艺术" class="art-image">
+                            <div class="art-info">
+                                <h3 class="art-title">黑白影调下的纯粹</h3>
+                                <div class="art-meta">
+                                    <span class="art-category">黑白摄影</span>
+                                    <span>2023-10-08</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="guide">
+                    <div class="section-header">
+                        <h2 class="section-title">鉴赏指南与知识</h2>
+                    </div>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>什么是人体艺术摄影？</h3>
+                            <p>人体艺术摄影是以人体为表现对象，通过光影、构图和色彩，表达审美情感、探索人性或反映社会现象的一种摄影流派。</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>metcn收录作品的标准是什么？</h3>
+                            <p>我们严格筛选作品，确保内容符合法律法规，注重艺术性与观赏性的平衡，旨在为用户提供纯粹的艺术欣赏体验。</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>如何欣赏人体写生？</h3>
+                            <p>欣赏人体写生应关注线条的流畅性、体块的准确性以及画面的整体氛围，理解艺术家如何通过简练的笔触表现人体动态。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="widget">
+                    <h3 class="widget-title">分类浏览</h3>
+                    <ul class="category-list">
+                        <li><a href="#"><span>素描与速写</span> <span class="count">128</span></a></li>
+                        <li><a href="#"><span>黑白摄影</span> <span class="count">85</span></a></li>
+                        <li><a href="#"><span>光影摄影</span> <span class="count">64</span></a></li>
+                        <li><a href="#"><span>色彩人像</span> <span class="count">42</span></a></li>
+                        <li><a href="#"><span>人体解剖学图解</span> <span class="count">30</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">热门标签</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <a href="#" class="tag">东方人体</a>
+                        <a href="#" class="tag">肌肉线条</a>
+                        <a href="#" class="tag">人体曲线</a>
+                        <a href="#" class="tag">艺术表达</a>
+                        <a href="#" class="tag">审美教育</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">投稿指南</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系方式</a>
+            </div>
+            <p class="copyright">&copy; 2023 metcn中国人体专辑. All Rights Reserved.</p>
+            <p class="copyright" style="margin-top: 0.5rem; font-size: 0.8rem;">仅供艺术交流与学习使用，请遵守当地法律法规。</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
